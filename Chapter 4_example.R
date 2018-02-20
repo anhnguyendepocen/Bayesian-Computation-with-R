@@ -21,4 +21,13 @@ prob.Obama=function(j){
 
 }
 Obama.win.probs = sapply(1:51,prob.Obama)
-rbinom(51,1,Obama.win.probs)
+sim.selection=function(){
+  n=51
+  size=1
+  win=rbinom(n,size,Obama.win.probs)
+  sum(EV*win)
+}
+sim.EV=replicate(1000,sim.selection())
+
+hist(sim.EV,min(sim.EV):max(sim.EV), col="blue")
+abline(v=365,lwd=1)
