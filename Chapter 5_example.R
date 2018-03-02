@@ -5,7 +5,7 @@ library(LearnBayes)
 data("cancermortality")
 attach(cancermortality)
 
-#log of likehood
+#log likehood
 
 
 mybetabinexch0<-function(theta,data){
